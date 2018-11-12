@@ -1,0 +1,9 @@
+<ul class="faces">
+    {{ range $person := .section.people }}
+    <li>
+        <span class="image"><img src="{{ $person.img_path | relURL }}" alt="" /></span>
+        <h3>{{ $person.name }}</h3>
+        <p>{{ $person.position }}</p>
+    </li>
+    {{ end }}
+</ul>

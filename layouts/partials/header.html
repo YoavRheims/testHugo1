@@ -1,0 +1,16 @@
+<!-- Header -->
+<header id="header" {{ if eq .Params.layout "home" }}class="alt"{{ end }}>
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="{{ .Site.BaseURL | relURL }}"><strong>{{ .Site.Title }}</strong></a>
+    </div>
+
+    <!-- Nav -->
+    <nav id="nav">
+        {{ $menu := .Site.Menus.main }}
+        {{ $include_dict := dict "menu" $menu "page" . }}
+        {{ partial "menu.html" $include_dict }}
+    </nav>
+
+</header>

@@ -1,0 +1,10 @@
+<!-- Banner -->
+<section id="banner">
+    <div class="content">
+        <h1>{{ .Params.banner.title }}</h1>
+        {{ partial "markdownify-block" .Params.banner.subtitle }}
+    </div>
+    {{ if .Params.banner.scroll_link }}
+        <a href="{{ .Params.banner.scroll_link }}" class="more scrolly">Learn More</a>
+    {{ end }}
+</section>

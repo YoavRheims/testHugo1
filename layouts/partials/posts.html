@@ -1,0 +1,18 @@
+{{ $cyc := slice "alt" "" }}
+{{ range $post_idx, $post := (.Site.GetPage "section" "posts").Pages.ByDate.Reverse }}
+<article class="post{{ if $.section.article_class }} {{ $.section.article_class }}{{ end }} {{ index $cyc (mod $post_idx 2) }}">
+    <div class="content" {{ if not $post.Params.alt_img_path }}style="width: 100%"{{ end }}>
+        <header>
+            <span class="category">{{ $post.Params.subtitle }}</span>
+            <h3>{{ $post.Title }}</h3>
+        </header>
+        {{ partial "markdownify-block" $post.Params.excerpt }}
+        <ul class="actions">
+            <li><a href="{{ $post.URL }}" class="button next">Learn More</a></li>
+        </ul>
+    </div>
+    {{ if $post.Params.alt_img_path }}
+    <div class="image" data-position="center"><img src="{{ $post.Params.alt_img_path | relURL }}" alt="" /></div>
+    {{ end }}
+</article>
+{{ end }}

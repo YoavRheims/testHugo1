@@ -1,0 +1,22 @@
+{{ define "content" }}
+<!-- Section -->
+<section class="main alt">
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ partial "markdownify-block" .Params.subtitle }}
+    </header>
+    <div class="inner style2">
+        {{ if .Params.content_img_path }}
+            <div class="image main" data-position="center"><img src="{{ .Params.content_img_path | relURL }}" alt="" /></div>
+        {{ end }}
+        {{ $sections := split .Content "<!--section-->" }}
+        {{ $part_len := len $sections }}
+        {{ range $part_idx, $part := $sections }}
+            {{ partial "markdownify-block" $part }}
+            {{ if not (eq $part_idx (sub $part_len 1)) }}
+                <hr class="major" />
+            {{ end }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}

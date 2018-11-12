@@ -1,0 +1,22 @@
+{{ define "content" }}
+{{ partial "banner.html" . }}
+
+{{ range $section := .Params.sections }}
+<!-- Section -->
+<section class="main {{ if $section.section_class }}{{ $section.section_class }}{{ end }}" {{ if $section.section_id }}id="{{ $section.section_id }}"{{ end }}>
+    <header>
+        <h2>{{ $section.title }}</h2>
+        {{ partial "markdownify-block" $section.subtitle }}
+    </header>
+    <div class="inner">
+        {{ $include_dict := dict "section" $section "Site" $.Site }}
+        {{ partial $section.component $include_dict }}
+    </div>
+</section>
+{{ end }}
+
+{{ if .Params.contact.enabled }}
+    {{ partial "contact.html" . }}
+{{ end }}
+
+{{ end }}

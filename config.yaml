@@ -1,0 +1,83 @@
+title: Relativity
+baseURL: /
+params:
+  footer:
+    social_links:
+      - title: Twitter
+        icon: fa-twitter
+        link_url: '#'
+      - title: Facebook
+        icon: fa-facebook
+        link_url: '#'
+      - title: Instagram
+        icon: fa-instagram
+        link_url: '#'
+      - title: GitHub
+        icon: fa-github
+        link_url: '#'
+      - title: Phone
+        icon: fa-phone
+        link_url: '#'
+      - title: Email
+        icon: fa-envelope-o
+        link_url: '#'
+    copyright: '&copy; Relativity. All rights reserved.'
+  palette: blue
+  palettes:
+    blue:
+      sass:
+        bg: '#4a98e2'
+    green:
+      sass:
+        bg: '#3dc5ad'
+    orange:
+      sass:
+        bg: '#e56f44'
+menu:
+  main:
+    - identifier: dropdown
+      url: '#'
+      weight: 2
+      name: Dropdown
+    - weight: 1
+      url: '#'
+      identifier: dropdown_1
+      name: Option One
+      parent: dropdown
+    - url: '#'
+      weight: 2
+      identifier: dropdown_2
+      name: Option Two
+      parent: dropdown
+    - url: '#'
+      weight: 3
+      identifier: dropdown_3
+      name: Option Three
+      parent: dropdown
+    - identifier: submenu
+      url: '#'
+      weight: 4
+      name: Submenu
+      parent: dropdown
+    - url: '#'
+      weight: 1
+      identifier: submenu_1
+      name: Option One
+      parent: submenu
+    - url: '#'
+      weight: 2
+      identifier: submenu_2
+      name: Option Two
+      parent: submenu
+    - url: '#'
+      weight: 3
+      identifier: submenu_3
+      name: Option Three
+      parent: submenu
+    - url: '#'
+      weight: 4
+      identifier: submenu_4
+      name: Option Four
+      parent: submenu
+disableKinds:
+  - RSS
